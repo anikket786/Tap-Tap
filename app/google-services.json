@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "216981338051",
+    "project_id": "tap-tap-474ef",
+    "storage_bucket": "tap-tap-474ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:216981338051:android:1722acef844db7886c2f76",
+        "android_client_info": {
+          "package_name": "com.twentyfourseven.taptap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "216981338051-1ttfg3co9dipr55s0dgr1tosdldb2j4r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.twentyfourseven.taptap",
+            "certificate_hash": "e7f08e1ce57fa44704709df4fb7ae042fc5911fe"
+          }
+        },
+        {
+          "client_id": "216981338051-p4cefh1j2pjloibp9knu8sg7fbbm34km.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7V_vXwzQl7DYDvqnRzsl7cIhV-88GT-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "216981338051-p4cefh1j2pjloibp9knu8sg7fbbm34km.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
