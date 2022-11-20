@@ -1,9 +1,34 @@
 package com.twentyfourseven.designsystem.theme
 
+import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+
+@Composable
+fun Theme(
+    colors: Colors,
+    background: Color,
+    content: @Composable () -> Unit,
+    darkIcons: Boolean = false
+) {
+    MaterialTheme(
+        colors = colors,
+        typography = Typography,
+        content = content
+    )
+    val systemUiController = rememberSystemUiController()
+    systemUiController.setStatusBarColor(
+        color = background,
+        darkIcons = darkIcons
+    )
+    systemUiController.setNavigationBarColor(
+        color = background,
+        darkIcons = darkIcons
+    )
+}
 
 internal val WhiteColorPalette = lightColors(
     primary = White,
@@ -20,10 +45,11 @@ internal val WhiteColorPalette = lightColors(
 fun WhiteTheme(
     content: @Composable () -> Unit
 ) {
-    MaterialTheme(
+    Theme(
         colors = WhiteColorPalette,
-        typography = Typography,
-        content = content
+        background = White,
+        content = content,
+        darkIcons = true
     )
 }
 
@@ -42,16 +68,10 @@ internal val BlueColorPalette = lightColors(
 fun BlueTheme(
     content: @Composable () -> Unit
 ) {
-    MaterialTheme(
+    Theme(
         colors = BlueColorPalette,
-        typography = Typography,
+        background = BgBlue,
         content = content
-    )
-
-    val systemUiController = rememberSystemUiController()
-    systemUiController.setStatusBarColor(
-        color = BgBlue,
-        darkIcons = false
     )
 }
 
@@ -70,16 +90,10 @@ internal val RedColorPalette = lightColors(
 fun RedTheme(
     content: @Composable () -> Unit
 ) {
-    MaterialTheme(
-        colors = BlueColorPalette,
-        typography = Typography,
+    Theme(
+        colors = RedColorPalette,
+        background = BgRed,
         content = content
-    )
-
-    val systemUiController = rememberSystemUiController()
-    systemUiController.setStatusBarColor(
-        color = BgBlue,
-        darkIcons = false
     )
 }
 
@@ -98,16 +112,10 @@ internal val VioletColorPalette = lightColors(
 fun VioletTheme(
     content: @Composable () -> Unit
 ) {
-    MaterialTheme(
+    Theme(
         colors = VioletColorPalette,
-        typography = Typography,
+        background = BgViolet,
         content = content
-    )
-
-    val systemUiController = rememberSystemUiController()
-    systemUiController.setStatusBarColor(
-        color = BgViolet,
-        darkIcons = false
     )
 }
 
@@ -126,15 +134,9 @@ internal val GreenColorPalette = lightColors(
 fun GreenTheme(
     content: @Composable () -> Unit
 ) {
-    MaterialTheme(
+    Theme(
         colors = GreenColorPalette,
-        typography = Typography,
+        background = BgGreen,
         content = content
-    )
-
-    val systemUiController = rememberSystemUiController()
-    systemUiController.setStatusBarColor(
-        color = BgGreen,
-        darkIcons = false
     )
 }

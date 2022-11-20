@@ -1,19 +1,19 @@
 package com.twentyfourseven.taptap.ui
 
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import com.twentyfourseven.designsystem.theme.BlueTheme
+import androidx.compose.ui.Modifier
+import com.twentyfourseven.designsystem.theme.paddingMedium
+import com.twentyfourseven.taptap.navigation.TapTapNavHost
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    BlueTheme {
-        Greeting("Android")
-    }
+fun TapTapApp(
+    appState: TapTapAppState = rememberTapTapAppState()
+) {
+    TapTapNavHost(
+        navController = appState.navController,
+        popBack = appState::onBackClick,
+        onNavigateToDestination = appState::navigate,
+        modifier = Modifier.padding(paddingMedium)
+    )
 }

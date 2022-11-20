@@ -18,7 +18,7 @@ fun rememberTapTapAppState(
 }
 
 class TapTapAppState(
-    private val navController: NavHostController,
+    val navController: NavHostController,
 ) {
     val currentDestination: NavDestination?
         @Composable get() = navController
