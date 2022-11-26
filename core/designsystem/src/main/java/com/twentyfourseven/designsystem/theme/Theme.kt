@@ -8,7 +8,7 @@ import androidx.compose.ui.graphics.Color
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
-fun Theme(
+internal fun Theme(
     colors: Colors,
     background: Color,
     content: @Composable () -> Unit,
@@ -31,14 +31,15 @@ fun Theme(
 }
 
 internal val WhiteColorPalette = lightColors(
-    primary = White,
-    onPrimary = Black,
-    onSecondary = Black,
-    onError = Black,
-    background = White,
-    onBackground = Black,
-    surface = White,
-    onSurface = Black,
+    primary = AppColors.Black,
+    onPrimary = AppColors.White,
+    secondary = AppColors.Black,
+    onSecondary = AppColors.White,
+    onError = AppColors.Black,
+    background = AppColors.White,
+    onBackground = AppColors.Black,
+    surface = AppColors.White,
+    onSurface = AppColors.Black,
 )
 
 @Composable
@@ -47,21 +48,22 @@ fun WhiteTheme(
 ) {
     Theme(
         colors = WhiteColorPalette,
-        background = White,
+        background = AppColors.White,
         content = content,
         darkIcons = true
     )
 }
 
 internal val BlueColorPalette = lightColors(
-    primary = BgBlue,
-    onPrimary = White,
-    onSecondary = White,
-    onError = White,
-    background = BgBlue,
-    onBackground = White,
-    surface = BgBlue,
-    onSurface = White,
+    primary = AppColors.White,
+    onPrimary = AppColors.Black,
+    secondary = AppColors.White,
+    onSecondary = AppColors.Black,
+    onError = AppColors.White,
+    background = AppColors.BgBlue,
+    onBackground = AppColors.White,
+    surface = AppColors.BgBlue,
+    onSurface = AppColors.White,
 )
 
 @Composable
@@ -70,20 +72,21 @@ fun BlueTheme(
 ) {
     Theme(
         colors = BlueColorPalette,
-        background = BgBlue,
+        background = AppColors.BgBlue,
         content = content
     )
 }
 
 internal val RedColorPalette = lightColors(
-    primary = BgRed,
-    onPrimary = White,
-    onSecondary = White,
-    onError = White,
-    background = BgRed,
-    onBackground = White,
-    surface = BgRed,
-    onSurface = White,
+    primary = AppColors.White,
+    onPrimary = AppColors.Black,
+    secondary = AppColors.White,
+    onSecondary = AppColors.Black,
+    onError = AppColors.White,
+    background = AppColors.BgRed,
+    onBackground = AppColors.White,
+    surface = AppColors.BgRed,
+    onSurface = AppColors.White,
 )
 
 @Composable
@@ -92,20 +95,21 @@ fun RedTheme(
 ) {
     Theme(
         colors = RedColorPalette,
-        background = BgRed,
+        background = AppColors.BgRed,
         content = content
     )
 }
 
 internal val VioletColorPalette = lightColors(
-    primary = BgViolet,
-    onPrimary = White,
-    onSecondary = White,
-    onError = White,
-    background = BgViolet,
-    onBackground = White,
-    surface = BgViolet,
-    onSurface = White,
+    primary = AppColors.White,
+    onPrimary = AppColors.Black,
+    secondary = AppColors.White,
+    onSecondary = AppColors.Black,
+    onError = AppColors.White,
+    background = AppColors.BgViolet,
+    onBackground = AppColors.White,
+    surface = AppColors.BgViolet,
+    onSurface = AppColors.White,
 )
 
 @Composable
@@ -114,20 +118,21 @@ fun VioletTheme(
 ) {
     Theme(
         colors = VioletColorPalette,
-        background = BgViolet,
+        background = AppColors.BgViolet,
         content = content
     )
 }
 
 internal val GreenColorPalette = lightColors(
-    primary = BgGreen,
-    onPrimary = White,
-    onSecondary = White,
-    onError = White,
-    background = BgGreen,
-    onBackground = White,
-    surface = BgGreen,
-    onSurface = White,
+    primary = AppColors.White,
+    onPrimary = AppColors.Black,
+    secondary = AppColors.White,
+    onSecondary = AppColors.Black,
+    onError = AppColors.White,
+    background = AppColors.BgGreen,
+    onBackground = AppColors.White,
+    surface = AppColors.BgGreen,
+    onSurface = AppColors.White,
 )
 
 @Composable
@@ -136,7 +141,7 @@ fun GreenTheme(
 ) {
     Theme(
         colors = GreenColorPalette,
-        background = BgGreen,
+        background = AppColors.BgGreen,
         content = content
     )
 }
