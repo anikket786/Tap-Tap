@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.twentyfourseven.gizmo.navigation.GizmoDestination
 import com.twentyfourseven.gizmo.navigation.gizmoGraph
 import com.twentyfourseven.home.navigation.HomeDestination
 import com.twentyfourseven.home.navigation.homeGraph
@@ -29,7 +30,12 @@ fun TapTapNavHost(
         startDestination = startDestination,
         modifier = modifier,
     ) {
-        homeGraph()
+        homeGraph(
+            popBack = popBack,
+            navigateToGizmo = {
+                onNavigateToDestination(GizmoDestination, GizmoDestination.route)
+            }
+        )
         gizmoGraph()
     }
 }

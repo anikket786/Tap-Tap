@@ -10,8 +10,13 @@ object HomeDestination : TapTapNavigationDestination {
     override val destination = "home_destination"
 }
 
-fun NavGraphBuilder.homeGraph() {
+fun NavGraphBuilder.homeGraph(
+    navigateToGizmo: () -> Unit,
+    popBack: () -> Unit
+) {
     composable(route = HomeDestination.route) {
-        HomeScreen()
+        HomeScreen(
+            navigateToGizmo
+        )
     }
 }
