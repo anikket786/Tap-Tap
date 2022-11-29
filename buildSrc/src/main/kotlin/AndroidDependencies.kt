@@ -52,4 +52,7 @@ object AndroidDependencies {
     // Google play services
     const val playCore = "com.google.android.play:core:1.10.3"
     const val googleServices = "com.google.gms:google-services:4.3.14"
+
+    // Lottie
+    const val lottie = "com.airbnb.android:lottie-compose:5.2.0"
 }

@@ -11,8 +11,8 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 internal fun Theme(
     colors: Colors,
     background: Color,
+    darkIcons: Boolean = false,
     content: @Composable () -> Unit,
-    darkIcons: Boolean = false
 ) {
     MaterialTheme(
         colors = colors,

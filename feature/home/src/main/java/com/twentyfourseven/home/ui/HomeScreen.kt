@@ -1,47 +1,163 @@
 package com.twentyfourseven.home.ui
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Button
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.annotation.DrawableRes
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.twentyfourseven.designsystem.theme.AppColors
 import com.twentyfourseven.designsystem.theme.WhiteTheme
+import com.twentyfourseven.home.R
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
+import com.twentyfourseven.designsystem.R as designR
 
 @Composable
 fun HomeScreen(
     navigateToGizmo: () -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
-    HomeScreenUi(navigateToGizmo)
+    HomeScreenUi(
+        navigateToGizmo
+    )
 }
 
 @Composable
-private fun HomeScreenUi(navigateToGizmo: () -> Unit) {
+private fun HomeScreenUi(
+    navigateToGizmo: () -> Unit,
+    scaffoldState: ScaffoldState = rememberScaffoldState(),
+    scope: CoroutineScope = rememberCoroutineScope()
+) {
+    var showDialog by remember { mutableStateOf(false) }
+
     WhiteTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
         ) {
-            Column(
-                modifier = Modifier.fillMaxSize(),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Button(onClick =  navigateToGizmo) {
-                    Text(text = "Open Gizmo")
+            Scaffold(
+                scaffoldState = scaffoldState,
+                topBar = {
+                    TopAppBar(
+                        title = { Text(text = stringResource(id = designR.string.app_name)) },
+                        navigationIcon = {
+                            IconButton(
+                                onClick = {
+                                    scope.launch {
+                                        scaffoldState.drawerState.open()
+                                    }
+                                }
+                            ) {
+                                Icon(
+                                    imageVector = Icons.Filled.Menu,
+                                    contentDescription = "Open Navigation drawer icon"
+                                )
+                            }
+                        }
+                    )
+                },
+                drawerContent = {
+                    DrawerView()
+                }
+            ) { padding ->
+                HomeGrid(
+                    padding = padding,
+                    navigateToGizmo = navigateToGizmo,
+                    showComingSoonDialog = { showDialog = true }
+                )
+
+                if (showDialog) {
+                    ComingSoonAlertDialog(
+                        onDismissRequest = { showDialog = false }
+                    )
                 }
             }
         }
     }
 }
 
+@Composable
+private fun HomeGrid(
+    padding: PaddingValues,
+    navigateToGizmo: () -> Unit,
+    showComingSoonDialog: () -> Unit
+) {
+    LazyVerticalGrid(
+        modifier = Modifier.padding(padding),
+        columns = GridCells.Fixed(3)
+    ) {
+        item {
+            HomeGridItem(
+                label = stringResource(R.string.gizmo),
+                color = AppColors.BgBlue,
+                icon = R.drawable.ic_gizmo,
+                onClick = navigateToGizmo
+            )
+        }
+        item {
+            HomeGridItem(
+                label = stringResource(R.string.connect),
+                color = AppColors.BgGreen,
+                icon = R.drawable.ic_connect,
+                onClick = showComingSoonDialog
+            )
+        }
+        item {
+            HomeGridItem(
+                label = stringResource(R.string.dribble),
+                color = AppColors.BgYellow,
+                icon = R.drawable.ic_dribble,
+                onClick = showComingSoonDialog
+            )
+        }
+    }
+}
+
+@Composable
+private fun HomeGridItem(
+    label: String,
+    color: Color,
+    @DrawableRes icon: Int,
+    onClick: () -> Unit
+) {
+    Column(
+        modifier = Modifier.padding(28.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Box(
+            modifier = Modifier
+                .padding(bottom = 8.dp)
+                .clickable { onClick() }
+                .background(color = color, shape = RoundedCornerShape(8.dp))
+                .aspectRatio(1f),
+            contentAlignment = Alignment.Center
+        ) {
+            Icon(
+                painter = painterResource(id = icon),
+                contentDescription = null,
+            )
+        }
+        Text(text = label)
+    }
+}
+
 @Preview
 @Composable
-fun PreviewHomeScreen() {
+private fun PreviewHomeScreen() {
     WhiteTheme {
-        HomeScreenUi{}
+        HomeScreenUi({})
     }
 }

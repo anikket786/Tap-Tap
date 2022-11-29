@@ -23,7 +23,7 @@ private fun GizmoScreenUi() {
     BlueTheme {
         Surface(modifier = Modifier.fillMaxSize()) {
             Button(onClick =  {}, modifier = Modifier.wrapContentSize()) {
-                Text(text = "Open Gizmo")
+                Text(text = "Gizmo")
             }
         }
     }
