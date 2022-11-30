@@ -40,7 +40,7 @@ fun HomeScreen(
 private fun HomeScreenUi(
     navigateToGizmo: () -> Unit,
     scaffoldState: ScaffoldState = rememberScaffoldState(),
-    scope: CoroutineScope = rememberCoroutineScope()
+    coroutineScope: CoroutineScope = rememberCoroutineScope()
 ) {
     var showDialog by remember { mutableStateOf(false) }
 
@@ -56,7 +56,7 @@ private fun HomeScreenUi(
                         navigationIcon = {
                             IconButton(
                                 onClick = {
-                                    scope.launch {
+                                    coroutineScope.launch {
                                         scaffoldState.drawerState.open()
                                     }
                                 }
