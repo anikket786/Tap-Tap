@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="notes_list">
+        <item>@raw/bubbles</item>
+        <item>@raw/clay</item>
+        <item>@raw/confetti</item>
+        <item>@raw/corona</item>
+        <item>@raw/dotted_spiral</item>
+        <item>@raw/flash_1</item>
+        <item>@raw/flash_2</item>
+        <item>@raw/flash_3</item>
+        <item>@raw/glimmer</item>
+        <item>@raw/moon</item>
+        <item>@raw/pinwheel</item>
+        <item>@raw/piston_1</item>
+        <item>@raw/piston_2</item>
+        <item>@raw/piston_3</item>
+        <item>@raw/prism_1</item>
+        <item>@raw/prism_2</item>
+        <item>@raw/prism_3</item>
+        <item>@raw/splits</item>
+        <item>@raw/squiggle</item>
+        <item>@raw/strike</item>
+        <item>@raw/suspension</item>
+        <item>@raw/timer</item>
+        <item>@raw/ufo</item>
+        <item>@raw/veil</item>
+        <item>@raw/wipe</item>
+        <item>@raw/zig_zag</item>
+    </integer-array>
+</resources>

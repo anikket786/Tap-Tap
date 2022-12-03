@@ -4,5 +4,5 @@ import androidx.annotation.RawRes
 
 data class VisualNote(
     @RawRes val note: Int,
-    @RawRes val visual: Int
+    @RawRes val visual: Int?
 )
