@@ -20,11 +20,11 @@ fun openChromeCustomTab(
         customTabsIntent.launchUrl(context, Uri.parse(url))
     } catch (e: Exception) {
         e.printStackTrace()
-        openUrlInExternalBrowser(context, url)
+        openUrl(context, url)
     }
 }
 
-fun openUrlInExternalBrowser(
+fun openUrl(
     context: Context,
     url: String
 ) {
@@ -33,4 +33,11 @@ fun openUrlInExternalBrowser(
     } catch (e: Exception) {
         e.printStackTrace()
     }
+}
+
+fun shareText(context: Context, text: String) {
+    val sendIntent = Intent(Intent.ACTION_SEND)
+    sendIntent.putExtra(Intent.EXTRA_TEXT, text)
+    sendIntent.type = "text/plain"
+    context.startActivity(sendIntent)
 }

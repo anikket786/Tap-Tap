@@ -24,9 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.twentyfourseven.designsystem.theme.WhiteTheme
 import com.twentyfourseven.home.R
-import com.twentyfourseven.util.kPrivacyPolicyUrl
-import com.twentyfourseven.util.kTermsConditionsUrl
-import com.twentyfourseven.util.openChromeCustomTab
+import com.twentyfourseven.util.*
 
 @Composable
 fun DrawerView() {
@@ -60,7 +58,7 @@ fun DrawerView() {
                 imageVector = Icons.Filled.Star,
                 title = stringResource(id = R.string.rate_us)
             ) {
-
+                openUrl(context, kPlayStoreUrl)
             }
         }
         item {
@@ -71,7 +69,8 @@ fun DrawerView() {
                 imageVector = Icons.Filled.Share,
                 title = stringResource(id = R.string.share)
             ) {
-
+                val text = context.getString(R.string.share_app_text, kPlayStoreUrl)
+                shareText(context, text)
             }
         }
         item {

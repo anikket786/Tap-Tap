@@ -9,4 +9,5 @@
     <string name="connect">Connect</string>
     <string name="coming_soon">Coming soon</string>
     <string name="got_it">Got It</string>
+    <string name="share_app_text">Hey check out this amazing app on google play store. \n\n%1$s</string>
 </resources>
