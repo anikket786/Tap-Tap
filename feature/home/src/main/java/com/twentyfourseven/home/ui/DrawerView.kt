@@ -30,7 +30,7 @@ fun DrawerView() {
         item {
             DrawerItem(
                 imageVector = Icons.Filled.Info,
-                title = stringResource(id = R.string.about_us)
+                title = stringResource(id = R.string.terms_and_conditions)
             ) {
 
             }

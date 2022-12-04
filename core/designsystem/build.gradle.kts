@@ -5,9 +5,11 @@ plugins {
 
 android {
     namespace = "com.twentyfourseven.designsystem"
-    compileSdk = 32
+
+    compileSdk = BuildConfigVersions.compileSdkVersion
+
     defaultConfig {
-        minSdk = 22
+        minSdk = BuildConfigVersions.minSdkVersion
     }
     buildFeatures {
         compose = true
@@ -17,6 +19,9 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.2.0"
+    }
+    buildFeatures {
+        buildConfig = true
     }
 }
 

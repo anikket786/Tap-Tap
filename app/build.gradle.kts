@@ -1,15 +1,14 @@
-import org.jetbrains.kotlin.gradle.targets.android.internal.AndroidDependency
-
 plugins {
     id("com.android.application")
     id("kotlin-kapt")
     id("org.jetbrains.kotlin.android")
     id("dagger.hilt.android.plugin")
     id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
-    compileSdk = 33//BuildConfigVersions.compileSdkVersion
+    compileSdk = BuildConfigVersions.compileSdkVersion
 
     defaultConfig {
         applicationId = "com.twentyfourseven.taptap"
@@ -85,4 +84,10 @@ dependencies {
 
     // google play
     implementation(AndroidDependencies.playCore)
+
+    // Firebase
+    implementation(platform(AndroidDependencies.firebaseBom))
+    releaseImplementation(AndroidDependencies.firebaseCrashlytics)
+    releaseImplementation(AndroidDependencies.firebaseCrashlyticsKtx)
+    implementation(AndroidDependencies.firebaseMessaging)
 }
