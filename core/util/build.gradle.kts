@@ -31,5 +31,4 @@ dependencies {
     implementation(AndroidDependencies.firebaseCore)
     releaseImplementation(AndroidDependencies.firebaseAnalytics)
     releaseImplementation(AndroidDependencies.firebaseAnalyticsKtx)
-    implementation(AndroidDependencies.firebaseInAppMessaging)
 }

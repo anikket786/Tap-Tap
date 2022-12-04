@@ -90,4 +90,5 @@ dependencies {
     releaseImplementation(AndroidDependencies.firebaseCrashlytics)
     releaseImplementation(AndroidDependencies.firebaseCrashlyticsKtx)
     implementation(AndroidDependencies.firebaseMessaging)
+    implementation(AndroidDependencies.firebaseInAppMessaging)
 }
