@@ -6,6 +6,8 @@ import android.media.SoundPool
 import androidx.lifecycle.ViewModel
 import com.twentyfourseven.gizmo.R
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -25,15 +27,16 @@ class GizmoViewModel @Inject constructor() : ViewModel() {
     private val _notesList: MutableList<Int?> = mutableListOf()
     val notesList: List<Int?> = _notesList
 
-
-    fun loadSoundPool(context: Context) {
-        val typedArray = context.resources.obtainTypedArray(R.array.notes_list)
-        for (i in 0 until typedArray.length()) {
-            val note = typedArray.getResourceId(i, 0)
-            val noteId = soundPool?.load(context, note, 1)
-            _notesList.add(noteId)
+    suspend fun loadSoundPool(context: Context) {
+        withContext(Dispatchers.IO) {
+            val typedArray = context.resources.obtainTypedArray(R.array.notes_list)
+            for (i in 0 until typedArray.length()) {
+                val note = typedArray.getResourceId(i, 0)
+                val noteId = soundPool?.load(context, note, 1)
+                _notesList.add(noteId)
+            }
+            typedArray.recycle()
         }
-        typedArray.recycle()
     }
 
     fun playSound(index: Int) {

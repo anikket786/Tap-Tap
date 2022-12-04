@@ -65,4 +65,7 @@ dependencies {
     implementation(AndroidDependencies.hiltAndroid)
     kapt(AndroidDependencies.hiltCompiler)
     implementation(AndroidDependencies.hiltNavigationCompose)
+
+    // Lottie
+    implementation(AndroidDependencies.lottie)
 }
