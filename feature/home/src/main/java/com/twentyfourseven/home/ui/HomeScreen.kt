@@ -22,6 +22,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.twentyfourseven.designsystem.theme.AppColors
 import com.twentyfourseven.designsystem.theme.WhiteTheme
 import com.twentyfourseven.home.R
+import com.twentyfourseven.util.AnalyticsEvent
+import com.twentyfourseven.util.AnalyticsManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import com.twentyfourseven.designsystem.R as designR
@@ -58,6 +60,7 @@ private fun HomeScreenUi(
                                 onClick = {
                                     coroutineScope.launch {
                                         scaffoldState.drawerState.open()
+                                        AnalyticsManager.logEvent(AnalyticsEvent.NAV_DRAWER_CLICKED)
                                     }
                                 }
                             ) {
@@ -104,7 +107,10 @@ private fun HomeGrid(
                 label = stringResource(R.string.gizmo),
                 color = AppColors.BgBlue,
                 icon = R.drawable.ic_gizmo,
-                onClick = navigateToGizmo
+                onClick = {
+                    AnalyticsManager.logEvent(AnalyticsEvent.HOME_GIZMO_CLICKED)
+                    navigateToGizmo()
+                }
             )
         }
         item {
@@ -112,7 +118,10 @@ private fun HomeGrid(
                 label = stringResource(R.string.connect),
                 color = AppColors.BgGreen,
                 icon = R.drawable.ic_connect,
-                onClick = showComingSoonDialog
+                onClick = {
+                    AnalyticsManager.logEvent(AnalyticsEvent.HOME_CONNECT_CLICKED)
+                    showComingSoonDialog()
+                }
             )
         }
         item {
@@ -120,7 +129,10 @@ private fun HomeGrid(
                 label = stringResource(R.string.dribble),
                 color = AppColors.BgYellow,
                 icon = R.drawable.ic_dribble,
-                onClick = showComingSoonDialog
+                onClick = {
+                    AnalyticsManager.logEvent(AnalyticsEvent.HOME_DRIBBLE_CLICKED)
+                    showComingSoonDialog()
+                }
             )
         }
     }

@@ -28,6 +28,7 @@ android {
 
 dependencies {
     implementation(platform(AndroidDependencies.firebaseBom))
+    implementation(AndroidDependencies.firebaseCore)
     releaseImplementation(AndroidDependencies.firebaseAnalytics)
     releaseImplementation(AndroidDependencies.firebaseAnalyticsKtx)
     implementation(AndroidDependencies.firebaseInAppMessaging)

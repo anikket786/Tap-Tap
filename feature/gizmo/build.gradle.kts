@@ -52,6 +52,7 @@ android {
 dependencies {
     implementation(project(":core:designsystem"))
     implementation(project(":core:navigation"))
+    implementation(project(":core:util"))
 
     implementation(AndroidDependencies.coreKtx)
     implementation(AndroidDependencies.composeMaterial)

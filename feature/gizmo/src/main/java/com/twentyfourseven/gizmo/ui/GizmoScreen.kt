@@ -23,6 +23,8 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.twentyfourseven.designsystem.theme.BlueTheme
 import com.twentyfourseven.gizmo.R
+import com.twentyfourseven.util.AnalyticsEvent
+import com.twentyfourseven.util.AnalyticsManager
 import kotlinx.coroutines.delay
 
 @Composable
@@ -77,6 +79,7 @@ private fun GizmoScreenUi(
                 endIndex = size - 1 + row,
                 onClick = { index ->
                     onClick(index)
+                    AnalyticsManager.logEvent(AnalyticsEvent.GIZMO_SOUND_PLAY_CLICKED)
                 },
             )
         }
@@ -123,7 +126,10 @@ private fun HintView() {
                 .clickable(
                     interactionSource = interactionSource,
                     indication = null
-                ) { showHint = false }
+                ) {
+                    showHint = false
+                    AnalyticsManager.logEvent(AnalyticsEvent.GIZMO_FIRST_TAP)
+                }
         ) {
             val composition by rememberLottieComposition(
                 spec = LottieCompositionSpec.RawRes(R.raw.lottie_tap)

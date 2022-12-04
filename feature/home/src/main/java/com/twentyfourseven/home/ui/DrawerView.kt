@@ -37,6 +37,7 @@ fun DrawerView() {
                 title = stringResource(id = R.string.terms_and_conditions)
             ) {
                 openChromeCustomTab(context, kTermsConditionsUrl)
+                AnalyticsManager.logEvent(AnalyticsEvent.DRAWER_T_AND_C_CLICKED)
             }
         }
         item {
@@ -48,6 +49,7 @@ fun DrawerView() {
                 title = stringResource(id = R.string.privacy_policy)
             ) {
                 openChromeCustomTab(context, kPrivacyPolicyUrl)
+                AnalyticsManager.logEvent(AnalyticsEvent.DRAWER_PRIVACY_POLICY_CLICKED)
             }
         }
         item {
@@ -59,6 +61,7 @@ fun DrawerView() {
                 title = stringResource(id = R.string.rate_us)
             ) {
                 openUrl(context, kPlayStoreUrl)
+                AnalyticsManager.logEvent(AnalyticsEvent.DRAWER_RATE_US_CLICKED)
             }
         }
         item {
@@ -71,6 +74,7 @@ fun DrawerView() {
             ) {
                 val text = context.getString(R.string.share_app_text, kPlayStoreUrl)
                 shareText(context, text)
+                AnalyticsManager.logEvent(AnalyticsEvent.DRAWER_SHARE_CLICKED)
             }
         }
         item {

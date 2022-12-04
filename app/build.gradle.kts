@@ -50,13 +50,13 @@ android {
             add("META-INF/gradle/incremental.annotation.processors")
         }
     }
-    namespace = "com.gromo.partner"
     buildToolsVersion = "31.0.0"
 }
 
 dependencies {
     implementation(project(":core:navigation"))
     implementation(project(":core:designsystem"))
+    implementation(project(":core:util"))
     implementation(project(":feature:home"))
     implementation(project(":feature:gizmo"))
 
