@@ -18,21 +18,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.twentyfourseven.designsystem.theme.WhiteTheme
 import com.twentyfourseven.home.R
+import com.twentyfourseven.util.kPrivacyPolicyUrl
+import com.twentyfourseven.util.kTermsConditionsUrl
+import com.twentyfourseven.util.openChromeCustomTab
 
 @Composable
 fun DrawerView() {
+    val context = LocalContext.current
+
     LazyColumn {
         item {
             DrawerItem(
                 imageVector = Icons.Filled.Info,
                 title = stringResource(id = R.string.terms_and_conditions)
             ) {
-
+                openChromeCustomTab(context, kTermsConditionsUrl)
             }
         }
         item {
@@ -43,7 +49,7 @@ fun DrawerView() {
                 imageVector = Icons.Filled.List,
                 title = stringResource(id = R.string.privacy_policy)
             ) {
-
+                openChromeCustomTab(context, kPrivacyPolicyUrl)
             }
         }
         item {
