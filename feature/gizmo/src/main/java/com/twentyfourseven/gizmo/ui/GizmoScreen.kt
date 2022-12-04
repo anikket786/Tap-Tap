@@ -136,8 +136,11 @@ private fun HintView() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 LottieAnimation(
+                    modifier = Modifier
+                        .width(100.dp)
+                        .height(64.dp),
                     composition = composition,
-                    contentScale = ContentScale.FillBounds,
+                    contentScale = ContentScale.Fit,
                     iterations = Int.MAX_VALUE
                 )
                 Text(text = stringResource(id = R.string.tap_anywhere_to_play))
